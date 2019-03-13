@@ -184,7 +184,7 @@ NSString * _Nonnull const HPFGatewayClientDidRedirectWithMappingErrorNotificatio
 - (id<HPFRequest>)getTransactionWithReference:(NSString *)transactionReference signature:(NSString *)signature withCompletionHandler:(HPFTransactionCompletionBlock)completionBlock
 {
   NSDictionary *signatureParam = [NSDictionary dictionaryWithObject:signature forKey:HPFGatewayClientSignature];
-  return [self handleRequestWithMethod:HPFHTTPMethodGet v2:NO path:[@"transaction/" stringByAppendingString:transactionReference] parameters:@[] responseMapperClass:[HPFTransactionDetailsMapper class] isArray:NO completionHandler:^(id result, NSError *error) {
+  return [self handleRequestWithMethod:HPFHTTPMethodGet v2:NO path:[@"transaction/" stringByAppendingString:transactionReference] parameters:@{} responseMapperClass:[HPFTransactionDetailsMapper class] isArray:NO completionHandler:^(id result, NSError *error) {
 
     NSError *resultError = nil;
     id resultObject = nil;
